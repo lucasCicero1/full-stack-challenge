@@ -21,8 +21,8 @@ const retrieveAlunos = async (req, res) => {
 
 const editAluno = async (req, res) => {
   try {
-    const { name, email } = req.body
-    await updateAluno({ name, email })
+    const { name, email, ra } = req.body
+    await updateAluno({ name, email, ra })
     res.status(200).send('Aluno has been edited.')
   } catch (err) {
     res.status(500).send({ message: err.message })
@@ -39,7 +39,7 @@ const deleteAluno = async (req, res) => {
   }
 }
 
-export default {
+export {
   createAluno,
   retrieveAlunos,
   editAluno,
