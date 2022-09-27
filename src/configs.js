@@ -8,5 +8,6 @@ export default {
     POSTGRES_USER: process.env.POSTGRES_USER,
     POSTGRES_DB: process.env.POSTGRES_DB,
     PORT: process.env.POSTGRES_PORT
-  }
+  },
+  TOKEN: process.env.TOKEN
 }
