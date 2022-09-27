@@ -1,5 +1,6 @@
 import express from 'express'
 import { createAluno, retrieveAlunos, editAluno, deleteAluno } from '../controllers/alunoController'
+import { isAuthenticated } from '../middlewares/isAuthenticated'
 
 const app = express()
 
@@ -7,7 +8,7 @@ const app = express()
 app.post('/create', createAluno)
 
 // Listar alunos cadastrados
-app.get('/retrieve', retrieveAlunos)
+app.get('/retrieve', isAuthenticated, retrieveAlunos)
 
 // Editar cadastro de aluno
 app.patch('/edit', editAluno)
