@@ -25,6 +25,7 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "camelize": "^1.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
