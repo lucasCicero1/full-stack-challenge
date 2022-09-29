@@ -4,7 +4,7 @@ const createAluno = async (req, res) => {
   try {
     const { name, email, ra, cpf } = req.body
     await insertAluno({ name, email, ra, cpf })
-    res.status(201).send('Aluno has been created.')
+    res.status(201).send({ message: 'Aluno has been created.' })
   } catch (err) {
     res.status(500).send({ message: err.message })
   }
