@@ -45,7 +45,7 @@
       * responsividade
       * estilização em geral (CSS)
       * Documentação
-      * Tela de Login
+      * tela de Login
 
 # Quais requisitos obrigatórios que não foram entregues
   * Nenhum :)
