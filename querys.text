@@ -1,0 +1,8 @@
+CREATE TABLE users ( email character varying(100) COLLATE pg_catalog."default" PRIMARY KEY, name text COLLATE pg_catalog."default",
+password text COLLATE pg_catalog."default",
+date timestamp default now() )
+
+CREATE TABLE alunos ( ra SERIAL PRIMARY KEY, name text COLLATE pg_catalog."default",
+email character varying(100) COLLATE pg_catalog."default",
+cpf character varying(11) COLLATE pg_catalog."default" NOT NULL,
+date timestamp default now() )
