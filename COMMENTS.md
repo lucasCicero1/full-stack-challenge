@@ -34,6 +34,7 @@
   * API
     * Separaria a parte de autenticação, criando por exemplo um micro service só pra isso.
     * Melhoraria a parte de testes.
+    * Documentação da api
   
   * FRONT 
     * Sendo a primeira vez que desenvolvo com o framework vuetify e pelo tempo bem apertado,
@@ -43,6 +44,7 @@
       * buscar o aluno por qualquer campo (nome, email, ra ou cpf)
       * responsividade
       * estilização em geral (CSS)
+      * Documentação
 
 # Quais requisitos obrigatórios que não foram entregues
   * Nenhum :)
