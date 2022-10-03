@@ -1,18 +1,36 @@
-import pool from '../utils/postgres'
+import createConnection from '../utils/postgres'
 import camelize from 'camelize'
 
 const insertUser = async ({ name, email, passwordHash }) => {
-  await pool.query('INSERT INTO users(name, email, password) VALUES ($1, $2, $3)', [name, email, passwordHash])
+  let client
+  try {
+    client = await createConnection()
+    await client.query('INSERT INTO users(name, email, password) VALUES ($1, $2, $3)', [name, email, passwordHash])
+  } finally {
+    if (client) await client.end()
+  }
 }
 
 const findUsers = async ({ email, password }) => {
-  const response = await pool.query('SELECT * FROM users')
-  return response.rowCount ? camelize(response.rows) : []
+  let client
+  try {
+    client = await createConnection()
+    const response = await client.query('SELECT * FROM users')
+    return response.rowCount ? camelize(response.rows) : []
+  } finally {
+    if (client) await client.end()
+  }
 }
 
 const findUserByEmail = async ({ email }) => {
-  const response = await pool.query('SELECT * FROM users WHERE email = $1', [email])
-  return response.rowCount ? camelize(response.rows) : null
+  let client
+  try {
+    client = await createConnection()
+    const response = await client.query('SELECT * FROM users WHERE email = $1', [email])
+    return response.rowCount ? camelize(response.rows) : null
+  } finally {
+    if (client) await client.end()
+  }
 }
 
 export {

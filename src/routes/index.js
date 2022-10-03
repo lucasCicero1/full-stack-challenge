@@ -1,10 +1,10 @@
-import express from 'express'
+import { Router } from 'express'
 import alunoRoute from './alunoRoute'
 import authRoute from './authRoute'
 
-const app = express()
+const router = Router()
 
-app.use(
+router.use(
   '/v1',
   [
     alunoRoute,
@@ -12,4 +12,4 @@ app.use(
   ]
 )
 
-export default app
+export { router }

@@ -1,4 +1,4 @@
-import { insertAluno, selectAllAlunos, updateAluno, removeAluno } from '../services/alunoService'
+import { insertAluno, selectAllAlunos, updateAluno, removeAluno, findAlunoByCpf } from '../services/alunoService'
 
 const createAluno = async (req, res) => {
   try {
@@ -13,6 +13,16 @@ const createAluno = async (req, res) => {
 const retrieveAlunos = async (req, res) => {
   try {
     const response = await selectAllAlunos()
+    res.status(200).send(response)
+  } catch (err) {
+    res.status(500).send({ message: err.message })
+  }
+}
+
+const retrieveAluno = async (req, res) => {
+  try {
+    const { cpf } = req.query
+    const response = await findAlunoByCpf({ cpf })
     res.status(200).send(response)
   } catch (err) {
     res.status(500).send({ message: err.message })
@@ -43,5 +53,6 @@ export {
   createAluno,
   retrieveAlunos,
   editAluno,
-  deleteAluno
+  deleteAluno,
+  retrieveAluno
 }

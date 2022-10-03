@@ -13,7 +13,7 @@ const newAluno = {
 }
 
 describe('Aluno Controller tests', () => {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhQGVtYWlsLmNvbSIsIm5hbWUiOiJtYXJpYSIsImlhdCI6MTY2NDMyNzkyMn0.heufErlG4ivqvT9mvjpjivZM8yCMBuAAAwSIBaX4nDg'
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwibmFtZSI6InRlc3QiLCJpYXQiOjE2NjQ0Nzg5MTB9.Q8jeZ3wahrvy5-4cYaPou98E5sdInvhCbvnVJL0Pi4c'
 
   const factoryMockAluno = newAluno
 
@@ -57,7 +57,6 @@ describe('Aluno Controller tests', () => {
   it('should DELETE an aluno registration', async () => {
     const response = await request(app)
       .delete('/v1/delete')
-      // .send({ name: factoryMockAluno.name, email: factoryMockAluno.email, ra: factoryMockAluno.ra })
       .query({ ra: factoryMockAluno.ra })
       .set('authorization', token)
 

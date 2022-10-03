@@ -1,19 +1,27 @@
-import express from 'express'
-import { createAluno, retrieveAlunos, editAluno, deleteAluno } from '../controllers/alunoController'
+import { Router } from 'express'
+import { createAluno, retrieveAlunos, editAluno, deleteAluno, retrieveAluno } from '../controllers/alunoController'
 import isAuthenticated from '../middlewares/isAuthenticated'
 
-const app = express()
+const router = Router()
 
-// Cadastrar novo aluno
-app.post('/create', isAuthenticated, createAluno)
+router.post('/create', isAuthenticated, (req, res) => {
+  return createAluno(req, res)
+})
 
-// Listar alunos cadastrados
-app.get('/retrieve', isAuthenticated, retrieveAlunos)
+router.get('/retrieve', isAuthenticated, (req, res) => {
+  return retrieveAlunos(req, res)
+})
 
-// Editar cadastro de aluno
-app.patch('/edit', isAuthenticated, editAluno)
+router.patch('/edit', isAuthenticated, (req, res) => {
+  return editAluno(req, res)
+})
 
-// Excluir cadastro de aluno
-app.delete('/delete', isAuthenticated, deleteAluno)
+router.delete('/delete', isAuthenticated, (req, res) => {
+  return deleteAluno(req, res)
+})
 
-export default app
+router.get('/get', isAuthenticated, (req, res) => {
+  return retrieveAluno(req, res)
+})
+
+export default router
